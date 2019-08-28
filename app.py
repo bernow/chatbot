@@ -36,13 +36,13 @@ def telegram():
             url = 'https://openapi.naver.com/v1/papago/n2mt'
             
             headers = {
-            'X-Naver-Client-Id': naver_client_id,
-            'X-Naver-Client-Secret': naver_client_secret
+                'X-Naver-Client-Id': naver_client_id,
+                'X-Naver-Client-Secret': naver_client_secret
             }
             data = {
                 'source': 'ko',
                 'target': 'en',
-                'text': text
+                'text': text[4:]
             }
             response = requests.post(url, data=data, headers=headers).json()
             text = response.get('message').get('result').get('translatedText')
