@@ -51,10 +51,14 @@ def telegram():
         #답장 메시지 보내기
         chat_id = 899056890
         base_url = f'https://api.telegram.org/bot{token}'
-        url = f'{base_url}/sendMessage?chat'
+        url = f'{base_url}/sendMessage?chat_id={chat_id}&text={text}'
         requests.get(url)
     return '', 200
 
 #python app.py로 서버 실행, Debug 모드로
 if __name__ == '__main__':
     app.run(debug=True)
+
+    import os
+    port = int(os.getenv('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
