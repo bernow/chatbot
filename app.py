@@ -27,7 +27,7 @@ def telegram():
         elif '비트코인' in text:
             currency = 'BTC'
             url = f'https://api.bithumb.com/public/ticker/{currency}'
-            resonse = requests.get(url).get_json
+            response = requests.get(url).json()
             text = response.get('data').get('opening_price')
         elif '/번역' == text[0:4]:
             naver_client_id = config('NAVER_CLIENT_ID')
